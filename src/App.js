@@ -36,6 +36,15 @@ export default class App extends Component {
     console.log(this.state.burgerArr)
   }
 
+  handleClear = (e) => {
+    this.setState(() => {
+      return (
+        {ingredients: this.props.ingredients },
+        {burgerArr: []}
+      )
+      })
+  }
+
   render() {
     return (
       <div className="App">
@@ -50,6 +59,7 @@ export default class App extends Component {
           <BurgerPane
             listOfIngredients={this.state.ingredients}
             burgerArr={this.state.burgerArr}
+            clearButton={this.handleClear}
           />
         </div>
       </div>

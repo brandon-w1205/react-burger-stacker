@@ -13,7 +13,11 @@ export default class BurgerPane extends Component {
                     listOfIngredients={this.props.listOfIngredients}
                     burgerArr={this.props.burgerArr}
                 />
-                <ClearBurger />
+                <ClearBurger
+                    listOfIngredients={this.props.listOfIngredients}
+                    burgerArr={this.props.burgerArr}
+                    clearButton={this.props.clearButton}
+                />
             </div>
         )
     }

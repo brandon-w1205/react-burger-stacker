@@ -5,7 +5,7 @@ export default class IngredientList extends Component {
     render() {
         const anIngredient = this.props.listOfIngredients.map((ingredient, i) => {
             return (
-                <button key={`key${i}`} onClick={() => this.props.clickFunction(ingredient)}>
+                <button key={`key${i}`} style={{'background-color': ingredient.color}} onClick={() => this.props.clickFunction(ingredient)}>
                     <Ingredient
                         ingredients={ingredient}
                     />
