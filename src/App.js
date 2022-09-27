@@ -29,39 +29,56 @@ export default class App extends Component {
     this.setState(prevState => {
       return (
         { ingredients: this.props.ingredients },
-        { burgerArr: [ addIngredient, ...prevState.burgerArr] }
-        
+        { burgerArr: [addIngredient, ...prevState.burgerArr] }
+
       )
     })
     console.log(this.state.burgerArr)
   }
 
-  handleClear = (e) => {
+  handleClear = () => {
     this.setState(() => {
       return (
-        {ingredients: this.props.ingredients },
-        {burgerArr: []}
+        { ingredients: this.props.ingredients },
+        { burgerArr: [] }
       )
-      })
+    })
+  }
+
+  handleSoloClear = (e) => {
+
+    this.setState(prevState => {
+      prevState.burgerArr.splice(prevState.burgerArr.indexOf(e), 1)
+      return (
+        { ingredients: this.props.ingredients },
+        { burgerArr: [...prevState.burgerArr] }
+      )
+    })
   }
 
   render() {
     return (
       <div className="App">
-        <div className="ingredientList">
+        <div className="List">
+          <h1 style={{color: 'white'}}>List of Ingredients</h1>
           <IngredientList
             listOfIngredients={this.state.ingredients}
             burgerArr={this.state.burgerArr}
             clickFunction={this.handleClick}
           />
         </div>
-        <div className="burgerPane">
+
+        <div className="List">
+          <h1 style={{color: 'white'}}>Burger</h1>
           <BurgerPane
             listOfIngredients={this.state.ingredients}
             burgerArr={this.state.burgerArr}
             clearButton={this.handleClear}
+            handleSoloClear={this.handleSoloClear}
           />
         </div>
+
+
       </div>
     )
   }

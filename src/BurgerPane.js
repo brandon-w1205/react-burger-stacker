@@ -12,6 +12,7 @@ export default class BurgerPane extends Component {
                 <BurgerStack
                     listOfIngredients={this.props.listOfIngredients}
                     burgerArr={this.props.burgerArr}
+                    handleSoloClear={this.props.handleSoloClear}
                 />
                 <ClearBurger
                     listOfIngredients={this.props.listOfIngredients}
