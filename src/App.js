@@ -32,6 +32,7 @@ export default class App extends Component {
         <div className="burgerPane">
           <BurgerPane
             listOfIngredients={this.state.ingredients}
+            burgerArr={this.state.burgerArr}
           />
         </div>
       </div>

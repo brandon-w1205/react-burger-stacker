@@ -5,7 +5,9 @@ export default class IngredientList extends Component {
 
     handleClick = (e) => {
         console.log("I have been clicked")
+        
     }
+
     render() {
         const anIngredient = this.props.listOfIngredients.map((ingredient, i) => {
             return (
