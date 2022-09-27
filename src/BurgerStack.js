@@ -1,10 +1,20 @@
 import React, {Component} from 'react'
-import Ingredients from './Ingredients'
+import Ingredient from './Ingredient'
 
 export default class BurgerStack extends Component {
     render() {
+        const anIngredient = this.props.listOfIngredients.map((ingredient, i) => {
+            return (
+                <Ingredient
+                    ingredients={ingredient}
+                    key={`key${i}`}
+                />
+            )
+        })
         return (
-            <Ingredients />
+            <div>
+                {anIngredient}
+            </div>
         )
     }
 }
