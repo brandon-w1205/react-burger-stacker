@@ -19,7 +19,8 @@ export default class App extends Component {
       { name: 'Tomato', color: 'tomato' },
       { name: 'Bacon', color: 'maroon' },
       { name: 'Onion', color: 'lightyellow' }
-    ]
+    ],
+    burgerArr: []
   }
   render() {
     return (
@@ -27,6 +28,7 @@ export default class App extends Component {
         <div className="ingredientList">
           <IngredientList
             listOfIngredients={this.state.ingredients}
+            burgerArr={this.state.burgerArr}
           />
         </div>
         <div className="burgerPane">

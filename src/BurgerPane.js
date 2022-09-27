@@ -4,7 +4,9 @@ import ClearBurger from './ClearBurger'
 
 export default class BurgerPane extends Component {
     render() {
-
+        // handleFilterChange = (e) => {
+        //     const stackValue = e.target.value
+        // }
         return (
             <div>
                 <BurgerStack
