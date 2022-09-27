@@ -2,18 +2,22 @@ import React, { Component } from 'react'
 import Ingredient from './Ingredient'
 
 export default class IngredientList extends Component {
+
+    handleClick = (e) => {
+        console.log("I have been clicked")
+    }
     render() {
         const anIngredient = this.props.listOfIngredients.map((ingredient, i) => {
             return (
-                <Ingredient 
-                    ingredients={ingredient}
-                    key={`key${i}`}
-                />
+                <button key={`key${i}`} onClick={this.handleClick}>
+                    <Ingredient
+                        ingredients={ingredient}
+                    />
+                </button>
             )
         })
         return (
-            <div>
-                {/* <p>{this.props.listOfIngredients[1].name}</p> */}
+            <div className="list">
                 {anIngredient}
             </div>
         )

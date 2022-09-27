@@ -4,10 +4,10 @@ import ClearBurger from './ClearBurger'
 
 export default class BurgerPane extends Component {
     render() {
-        
+
         return (
             <div>
-                <BurgerStack 
+                <BurgerStack
                     listOfIngredients={this.props.listOfIngredients}
                 />
                 <ClearBurger />
