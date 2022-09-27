@@ -29,7 +29,7 @@ export default class App extends Component {
     this.setState(prevState => {
       return (
         { ingredients: this.props.ingredients },
-        { burgerArr: [...prevState.burgerArr, addIngredient] }
+        { burgerArr: [ addIngredient, ...prevState.burgerArr] }
         
       )
     })
