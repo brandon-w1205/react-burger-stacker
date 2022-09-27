@@ -3,7 +3,7 @@ import Ingredient from './Ingredient'
 
 export default class BurgerStack extends Component {
     render() {
-        const anIngredient = this.props.listOfIngredients.map((ingredient, i) => {
+        const summon = this.props.burgerArr.map((ingredient, i) => {
             return (
                 <Ingredient
                     ingredients={ingredient}
@@ -13,7 +13,7 @@ export default class BurgerStack extends Component {
         })
         return (
             <div>
-                {anIngredient}
+                {summon}
             </div>
         )
     }

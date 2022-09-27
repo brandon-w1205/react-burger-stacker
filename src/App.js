@@ -22,6 +22,20 @@ export default class App extends Component {
     ],
     burgerArr: []
   }
+
+  handleClick = (e) => {
+    console.log("I have been clicked")
+    const addIngredient = e
+    this.setState(prevState => {
+      return (
+        { ingredients: this.props.ingredients },
+        { burgerArr: [...prevState.burgerArr, addIngredient] }
+        
+      )
+    })
+    console.log(this.state.burgerArr)
+  }
+
   render() {
     return (
       <div className="App">
@@ -29,6 +43,7 @@ export default class App extends Component {
           <IngredientList
             listOfIngredients={this.state.ingredients}
             burgerArr={this.state.burgerArr}
+            clickFunction={this.handleClick}
           />
         </div>
         <div className="burgerPane">
