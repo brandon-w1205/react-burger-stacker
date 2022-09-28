@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import { useState } from 'react'
 import IngredientList from './IngredientList'
 import BurgerPane from './BurgerPane'
 
 
 
-export default class App extends Component {
-  state = {
+export default function App() {
+  const [state, setState] = useState({
     ingredients: [
       { name: 'Kaiser Bun', color: 'saddlebrown' },
       { name: 'Sesame Bun', color: 'sandybrown' },
@@ -21,65 +21,55 @@ export default class App extends Component {
       { name: 'Onion', color: 'lightyellow' }
     ],
     burgerArr: []
-  }
+  })
 
-  handleClick = (e) => {
+  const handleClick = (e) => {
     console.log("I have been clicked")
     const addIngredient = e
-    this.setState(prevState => {
-      return (
-        { ingredients: this.props.ingredients },
-        { burgerArr: [addIngredient, ...prevState.burgerArr] }
-
-      )
-    })
-    console.log(this.state.burgerArr)
+    setState(
+        { ingredients: state.ingredients },
+        { burgerArr: [addIngredient, ...state.burgerArr] }
+    )
+    console.log(state.burgerArr)
   }
 
-  handleClear = () => {
-    this.setState(() => {
-      return (
-        { ingredients: this.props.ingredients },
+  const handleClear = () => {
+    setState(
+        { ingredients: state.ingredients },
         { burgerArr: [] }
-      )
-    })
-  }
-
-  handleSoloClear = (e) => {
-
-    this.setState(prevState => {
-      prevState.burgerArr.splice(prevState.burgerArr.indexOf(e), 1)
-      return (
-        { ingredients: this.props.ingredients },
-        { burgerArr: [...prevState.burgerArr] }
-      )
-    })
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <div className="List">
-          <h1 style={{color: 'white'}}>List of Ingredients</h1>
-          <IngredientList
-            listOfIngredients={this.state.ingredients}
-            burgerArr={this.state.burgerArr}
-            clickFunction={this.handleClick}
-          />
-        </div>
-
-        <div className="List">
-          <h1 style={{color: 'white'}}>Burger</h1>
-          <BurgerPane
-            listOfIngredients={this.state.ingredients}
-            burgerArr={this.state.burgerArr}
-            clearButton={this.handleClear}
-            handleSoloClear={this.handleSoloClear}
-          />
-        </div>
-
-
-      </div>
     )
   }
+
+  const handleSoloClear = (e) => {
+    state.burgerArr.splice(state.burgerArr.indexOf(e), 1)
+    setState(
+        { ingredients: state.ingredients },
+        { burgerArr: [...state.burgerArr] }
+      )
+    
+  }
+
+  return (
+    <div className="App">
+      <div className="List">
+        <h1 style={{ color: 'white' }}>List of Ingredients</h1>
+        <IngredientList
+          listOfIngredients={state.ingredients}
+          burgerArr={state.burgerArr}
+          clickFunction={handleClick}
+        />
+      </div>
+
+      <div className="List">
+        <h1 style={{ color: 'white' }}>Burger</h1>
+        <BurgerPane
+          listOfIngredients={state.ingredients}
+          burgerArr={state.burgerArr}
+          clearButton={handleClear}
+          handleSoloClear={handleSoloClear}
+        />
+      </div>
+    </div>
+  )
+
 }

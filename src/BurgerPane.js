@@ -1,25 +1,21 @@
-import React, { Component } from 'react'
+
 import BurgerStack from './BurgerStack'
 import ClearBurger from './ClearBurger'
 
-export default class BurgerPane extends Component {
-    render() {
-        // handleFilterChange = (e) => {
-        //     const stackValue = e.target.value
-        // }
+export default function BurgerPane(props){
         return (
             <div>
                 <BurgerStack
-                    listOfIngredients={this.props.listOfIngredients}
-                    burgerArr={this.props.burgerArr}
-                    handleSoloClear={this.props.handleSoloClear}
+                    listOfIngredients={props.listOfIngredients}
+                    burgerArr={props.burgerArr}
+                    handleSoloClear={props.handleSoloClear}
                 />
                 <ClearBurger
-                    listOfIngredients={this.props.listOfIngredients}
-                    burgerArr={this.props.burgerArr}
-                    clearButton={this.props.clearButton}
+                    listOfIngredients={props.listOfIngredients}
+                    burgerArr={props.burgerArr}
+                    clearButton={props.clearButton}
                 />
             </div>
         )
-    }
+    
 }
