@@ -8,14 +8,14 @@ export default function BurgerStack(props) {
                     ingredients={ingredient}
                     key={`key${i}`}
                 />
+                {console.log(ingredient)}
             </button>
-
         )
     })
+
     return (
         <div className="list">
             {summon}
         </div>
     )
-
 }

@@ -3,7 +3,6 @@ import IngredientList from './IngredientList'
 import BurgerPane from './BurgerPane'
 
 
-
 export default function App() {
   const [state, setState] = useState({
     ingredients: [
@@ -27,26 +26,33 @@ export default function App() {
     console.log("I have been clicked")
     const addIngredient = e
     setState(
-        { ingredients: state.ingredients },
-        { burgerArr: [addIngredient, ...state.burgerArr] }
+      {
+        ingredients: [...state.ingredients],
+        burgerArr: [addIngredient, ...state.burgerArr]
+      }
+
     )
     console.log(state.burgerArr)
   }
 
   const handleClear = () => {
     setState(
-        { ingredients: state.ingredients },
-        { burgerArr: [] }
+      {
+        ingredients: [...state.ingredients],
+        burgerArr: []
+      }
     )
   }
 
   const handleSoloClear = (e) => {
     state.burgerArr.splice(state.burgerArr.indexOf(e), 1)
     setState(
-        { ingredients: state.ingredients },
-        { burgerArr: [...state.burgerArr] }
-      )
-    
+      {
+        ingredients: [...state.ingredients],
+        burgerArr: [...state.burgerArr]
+      }
+    )
+
   }
 
   return (

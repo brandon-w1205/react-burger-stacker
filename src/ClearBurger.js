@@ -1,4 +1,3 @@
-
 export default function ClearBurger(props) {
     return (
         <div>

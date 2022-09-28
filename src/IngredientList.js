@@ -1,4 +1,3 @@
-
 import Ingredient from './Ingredient'
 
 export default function IngredientList(props) {
@@ -8,6 +7,7 @@ export default function IngredientList(props) {
                 <Ingredient
                     ingredients={ingredient}
                 />
+                
             </button>
         )
     })
